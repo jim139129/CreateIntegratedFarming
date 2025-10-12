@@ -1,7 +1,6 @@
-## Create: Integrated Farming 1.1.1
+## Create: Integrated Farming 1.1.2
 
-### Updates
-* Roost inventory size is now configurable (by NightPotato)
+**REQUIRE Create: Dragon Plus 1.8.1!**
 
-### Translation
-* Add Brazilian Portuguese localization, by PrincessStellar
+### Fix
+* Fix missing Ponder
