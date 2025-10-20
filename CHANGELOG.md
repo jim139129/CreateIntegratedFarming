@@ -1,6 +1,4 @@
-## Create: Integrated Farming 1.1.2
-
-**REQUIRE Create: Dragon Plus 1.8.1!**
+## Create: Integrated Farming 1.1.2b
 
 ### Fix
-* Fix missing Ponder
+* Fix missing Ponder text
