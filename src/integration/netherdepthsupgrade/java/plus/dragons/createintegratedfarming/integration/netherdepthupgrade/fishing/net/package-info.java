@@ -1,7 +1,7 @@
 @FieldsAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package plus.dragons.createintegratedfarming.integration.netherdepthupgrade.content.fishing.net;
+package plus.dragons.createintegratedfarming.integration.netherdepthupgrade.fishing.net;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.FieldsAreNonnullByDefault;

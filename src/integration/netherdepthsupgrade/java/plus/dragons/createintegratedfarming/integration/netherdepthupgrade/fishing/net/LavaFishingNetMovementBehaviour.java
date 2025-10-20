@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package plus.dragons.createintegratedfarming.integration.netherdepthupgrade.content.fishing.net;
+package plus.dragons.createintegratedfarming.integration.netherdepthupgrade.fishing.net;
 
 import com.scouter.netherdepthsupgrade.entity.LavaAnimal;
 import com.scouter.netherdepthsupgrade.items.NDUItems;

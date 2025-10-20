@@ -29,8 +29,8 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.data.loading.DatagenModLoader;
-import plus.dragons.createintegratedfarming.integration.netherdepthupgrade.content.fishing.net.LavaFishingNetBlock;
-import plus.dragons.createintegratedfarming.integration.netherdepthupgrade.content.fishing.net.LavaFishingNetMovementBehaviour;
+import plus.dragons.createintegratedfarming.integration.netherdepthupgrade.fishing.net.LavaFishingNetBlock;
+import plus.dragons.createintegratedfarming.integration.netherdepthupgrade.fishing.net.LavaFishingNetMovementBehaviour;
 
 public class NDUBlocks {
     public static final BlockEntry<LavaFishingNetBlock> LAVA_FISHING_NET = REGISTRATE

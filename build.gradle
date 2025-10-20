@@ -28,7 +28,8 @@ var integrationMods = [
         ["mynethersdelight","farmersdelight"],
         ["corndelight","farmersdelight"],
         ["createenchantablemachinery"],
-        ["crabberdelight","farmersdelight"]
+        ["crabberdelight","farmersdelight"],
+        ["untitledduck"]
 ]
 
 integrationMods.each {integrationMod ->
@@ -171,6 +172,7 @@ dependencies {
     compileOnly("maven.modrinth:create-enchantable-machinery:${create_enchantable_machinery_version}")
     localImplementation("maven.modrinth:geckolib:${geckolib_version}")
     localImplementation("maven.modrinth:nether-depths-upgrade:${nether_depths_upgrade_version}")
+    localImplementation("maven.modrinth:untitled-duck-mod:${untitled_duck_version}")
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
