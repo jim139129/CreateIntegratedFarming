@@ -1,4 +1,3 @@
-## Create: Integrated Farming 1.1.2b
+## Create: Integrated Farming 1.1.3
 
-### Fix
-* Fix missing Ponder text
+Update for Create ***6.0.7***.
