@@ -37,6 +37,10 @@ public class UntitledDuckPonderPlugin {
         helper.addToTag(CIFPonderTags.RANCHING_APPLIANCES)
                 .add(UntitledDuckBlocks.DUCK_ROOST_NORMAL.getId())
                 .add(UntitledDuckBlocks.GOOSE_ROOST_NORMAL.getId());
+
+        helper.addToTag(AllCreatePonderTags.ARM_TARGETS)
+                .add(UntitledDuckBlocks.DUCK_ROOST_NORMAL.getId())
+                .add(UntitledDuckBlocks.GOOSE_ROOST_NORMAL.getId());
     }
 
     public static void registerScene(PonderSceneRegistrationHelper<ResourceLocation> helper) {
