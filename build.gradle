@@ -29,7 +29,8 @@ var integrationMods = [
         ["corndelight","farmersdelight"],
         ["createenchantablemachinery"],
         ["crabberdelight","farmersdelight"],
-        ["untitledduck"]
+        ["untitledduck"],
+        ["delightoflight","farmersdelight"],
 ]
 
 integrationMods.each {integrationMod ->
@@ -173,6 +174,7 @@ dependencies {
     localImplementation("maven.modrinth:geckolib:${geckolib_version}")
     localImplementation("maven.modrinth:nether-depths-upgrade:${nether_depths_upgrade_version}")
     localImplementation("maven.modrinth:untitled-duck-mod:${untitled_duck_version}")
+    localImplementation("curse.maven:delighto-flight-1347014:7170834") // 1.2.2
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

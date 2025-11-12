@@ -1,11 +1,10 @@
 {
   "required": true,
   "priority": 1000,
-  "package": "plus.dragons.createintegratedfarming.mixin.netherdepthupgrade",
+  "package": "plus.dragons.createintegratedfarming.mixin.delightoflight",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ForgeEventsMixin",
-    "LavaFishingBobberEntityInvoker"
+    "LightningBoltMixin"
   ],
   "injectors": {
     "defaultRequire": 1

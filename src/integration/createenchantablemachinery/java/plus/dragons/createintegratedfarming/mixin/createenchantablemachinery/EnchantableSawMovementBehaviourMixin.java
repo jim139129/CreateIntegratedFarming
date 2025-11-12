@@ -23,6 +23,9 @@ import com.simibubi.create.content.kinetics.saw.SawMovementBehaviour;
 import com.simibubi.create.content.kinetics.saw.TreeCutter;
 import io.github.cotrin8672.cem.content.block.saw.EnchantableSawMovementBehaviour;
 import java.util.Map;
+
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Final;
@@ -32,7 +35,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import plus.dragons.createintegratedfarming.api.saw.SawableBlockTags;
+import plus.dragons.createintegratedfarming.integration.ModIntegration;
 
+@Restriction(require = @Condition(ModIntegration.Mods.CREATE_ENCHANTABLE_MACHINERY))
 @Mixin(EnchantableSawMovementBehaviour.class)
 public class EnchantableSawMovementBehaviourMixin extends SawMovementBehaviour {
     @Final

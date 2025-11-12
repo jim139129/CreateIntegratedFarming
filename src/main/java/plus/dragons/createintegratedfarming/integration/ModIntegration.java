@@ -30,7 +30,9 @@ public enum ModIntegration {
     CREATE_ENCHANTABLE_MACHINERY(Mods.CREATE_ENCHANTABLE_MACHINERY),
     CREATE_CRAFT_AND_ADDITIONS(Mods.CREATE_CRAFT_AND_ADDITIONS),
     NETHER_DEPTHS_UPGRADE(Mods.NETHER_DEPTHS_UPGRADE),
-    CRABBERS_DELIGHT(Mods.CRABBERS_DELIGHT);
+    CRABBERS_DELIGHT(Mods.CRABBERS_DELIGHT),
+    UNTITLED_DUCK(Mods.UNTITLED_DUCK),
+    DELIGHT_O_FLIGHT(Mods.DELIGHT_O_FLIGHT);
 
     private final String id;
 
@@ -66,5 +68,7 @@ public enum ModIntegration {
         public static final String CREATE_CRAFT_AND_ADDITIONS = "createadditions";
         public static final String NETHER_DEPTHS_UPGRADE = "netherdepthsupgrade";
         public static final String CRABBERS_DELIGHT = "crabbersdelight";
+        public static final String UNTITLED_DUCK = "untitledduckmod";
+        public static final String DELIGHT_O_FLIGHT = "delighto_flight";
     }
 }
