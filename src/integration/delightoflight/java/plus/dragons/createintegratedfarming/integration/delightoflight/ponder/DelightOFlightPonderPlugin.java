@@ -25,7 +25,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import plus.dragons.createintegratedfarming.client.ponder.CIFPonderPlugin;
 import plus.dragons.createintegratedfarming.client.ponder.CIFPonderTags;
-import plus.dragons.createintegratedfarming.client.ponder.scene.MiscScene;
 
 public class DelightOFlightPonderPlugin {
     public static void register() {

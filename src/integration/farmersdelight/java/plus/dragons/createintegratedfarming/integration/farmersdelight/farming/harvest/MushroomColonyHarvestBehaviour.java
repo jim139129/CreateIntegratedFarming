@@ -23,6 +23,7 @@ import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.BlockItem;
@@ -49,6 +50,8 @@ public class MushroomColonyHarvestBehaviour implements CustomHarvestBehaviour {
         if (!(block instanceof MushroomColonyBlock colony))
             return null;
         if (!(colony.mushroomType.value() instanceof BlockItem mushroom))
+            return null;
+        if (BuiltInRegistries.BLOCK.getKey(colony).getPath().contains("cloudshroom")) // Delight o' Flight Cloudshroom has 'special' implements so here is special compat
             return null;
         return new MushroomColonyHarvestBehaviour(colony, mushroom.getBlock());
     }

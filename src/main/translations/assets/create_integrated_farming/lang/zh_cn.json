@@ -12,6 +12,8 @@
   "create_integrated_farming.ponder.lava_fishing_net.text_1": "当熔岩渔网作为动态结构的一部分移动时……",
   "create_integrated_farming.ponder.lava_fishing_net.text_2": "其会在岩浆中捕鱼，如同玩家在使用熔岩钓鱼竿钓鱼",
   "create_integrated_farming.ponder.lava_fishing_net.text_3": "熔岩渔网会捕捉岩浆中的小型生物",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.header": "土地充能",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.text_1": "通过雷击避雷针对土地进行充能，制造气象沃土",
   "create_integrated_farming.ponder.roost.catch.header": "使用禽舍",
   "create_integrated_farming.ponder.roost.catch.text_1": "手持空禽舍右键禽鸟即可捕捉",
   "create_integrated_farming.ponder.roost.catch.text_2": "通常情况下，幼禽无法被捕捉",

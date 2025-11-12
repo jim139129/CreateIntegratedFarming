@@ -23,7 +23,6 @@ import com.simibubi.create.content.kinetics.saw.SawMovementBehaviour;
 import com.simibubi.create.content.kinetics.saw.TreeCutter;
 import io.github.cotrin8672.cem.content.block.saw.EnchantableSawMovementBehaviour;
 import java.util.Map;
-
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.core.BlockPos;
