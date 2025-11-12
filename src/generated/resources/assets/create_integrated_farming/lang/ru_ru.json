@@ -1,4 +1,5 @@
 {
+  "_comment.unlocalized": "Remove this line after finishing localization.",
   "block.create_integrated_farming.chicken_roost": "Куриный насест",
   "block.create_integrated_farming.fishing_net": "Рыболовная сеть",
   "block.create_integrated_farming.lava_fishing_net": "Лавовая рыболовная сеть",
@@ -12,6 +13,8 @@
   "create_integrated_farming.ponder.lava_fishing_net.text_1": "Когда лавовые сети движутся как часть анимированной штуковины...",
   "create_integrated_farming.ponder.lava_fishing_net.text_2": "...они будут ловить в лаве, как игрок с лавовой удочкой",
   "create_integrated_farming.ponder.lava_fishing_net.text_3": "Лавовая сеть может поймать мелких существ в лаве",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.header": "Charging Soil",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.text_1": "Charging process of Soil to Weather Soil can be completed via Lightning Rod by Lightning Strike",
   "create_integrated_farming.ponder.roost.catch.header": "Использованием насеста",
   "create_integrated_farming.ponder.roost.catch.text_1": "ПКМ по птице с пустым насестом, чтобы поймать её",
   "create_integrated_farming.ponder.roost.catch.text_2": "Обычно птенцов нельзя поймать",

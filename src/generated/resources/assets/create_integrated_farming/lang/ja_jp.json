@@ -13,6 +13,8 @@
   "create_integrated_farming.ponder.lava_fishing_net.text_1": "溶岩釣り網がからくり化された装置の一部として移動されるたびに...",
   "create_integrated_farming.ponder.lava_fishing_net.text_2": "溶岩釣り網は、釣り竿で釣りをするプレイヤーのように、溶岩で釣りをします",
   "create_integrated_farming.ponder.lava_fishing_net.text_3": "溶岩釣り網は溶岩の中の魚などを捕獲します",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.header": "Charging Soil",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.text_1": "Charging process of Soil to Weather Soil can be completed via Lightning Rod by Lightning Strike",
   "create_integrated_farming.ponder.roost.catch.header": "巣箱の使い方",
   "create_integrated_farming.ponder.roost.catch.text_1": "空いている巣箱でニワトリを右クリックして捕まえます。",
   "create_integrated_farming.ponder.roost.catch.text_2": "成長前のニワトリは捕まえることができません",

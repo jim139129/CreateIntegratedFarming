@@ -13,6 +13,8 @@
   "create_integrated_farming.ponder.lava_fishing_net.text_1": "Sempre que as Redes de Pesca de Lava forem movidas como parte de um Dispositivo animado...",
   "create_integrated_farming.ponder.lava_fishing_net.text_2": "Elas irão pescar em lava, como um jogador pescando com uma Vara de Pesca de Lava",
   "create_integrated_farming.ponder.lava_fishing_net.text_3": "A Rede de Pesca de Lava pegará pequenos animais na lava",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.header": "Charging Soil",
+  "create_integrated_farming.ponder.lightning_rod.charge_soil.text_1": "Charging process of Soil to Weather Soil can be completed via Lightning Rod by Lightning Strike",
   "create_integrated_farming.ponder.roost.catch.header": "Using Roost",
   "create_integrated_farming.ponder.roost.catch.text_1": "Right-click a bird with the empty roost to catch it",
   "create_integrated_farming.ponder.roost.catch.text_2": "Generally, baby birds cannot be caught",

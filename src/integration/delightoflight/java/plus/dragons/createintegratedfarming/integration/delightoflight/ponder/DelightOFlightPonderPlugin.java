@@ -16,32 +16,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package plus.dragons.createintegratedfarming.integration.mynethersdelight.ponder;
+package plus.dragons.createintegratedfarming.integration.delightoflight.ponder;
 
-import static com.simibubi.create.infrastructure.ponder.AllCreatePonderTags.ARM_TARGETS;
-
-import com.simibubi.create.AllBlocks;
-import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import plus.dragons.createintegratedfarming.client.ponder.CIFPonderPlugin;
 import plus.dragons.createintegratedfarming.client.ponder.CIFPonderTags;
+import plus.dragons.createintegratedfarming.client.ponder.scene.MiscScene;
 
-public class MNDPonderPlugin {
+public class DelightOFlightPonderPlugin {
     public static void register() {
-        CIFPonderPlugin.SCENES.add(MNDPonderPlugin::registerScenes);
-        CIFPonderPlugin.TAGS.add(MNDPonderPlugin::registerTags);
-    }
-
-    private static void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
-        helper.forComponents(AllBlocks.SPOUT.getId(), BuiltInRegistries.BLOCK.getKey(MNDBlocks.LETIOS_COMPOST.get()))
-                .addStoryBoard("mynethersdelight/letios_compost_catalyze", MNDPonderScenes::chargingSoil, CIFPonderTags.FARMING_APPLIANCES);
+        CIFPonderPlugin.TAGS.add(DelightOFlightPonderPlugin::registerTags);
+        CIFPonderPlugin.SCENES.add(DelightOFlightPonderPlugin::registerScene);
     }
 
     private static void registerTags(PonderTagRegistrationHelper<ResourceLocation> helper) {
-        helper.addToTag(ARM_TARGETS)
-                .add(BuiltInRegistries.BLOCK.getKey(MNDBlocks.POWDERY_CANNON.get()));
+        helper.addToTag(CIFPonderTags.FARMING_APPLIANCES)
+                .add(BuiltInRegistries.BLOCK.getKey(Blocks.LIGHTNING_ROD));
+    }
+
+    public static void registerScene(PonderSceneRegistrationHelper<ResourceLocation> helper) {
+        helper.forComponents(BuiltInRegistries.BLOCK.getKey(Blocks.LIGHTNING_ROD))
+                .addStoryBoard("delightoflight/weather_soil", DelightOFlightPonderScenes::catalyze, CIFPonderTags.FARMING_APPLIANCES);
     }
 }

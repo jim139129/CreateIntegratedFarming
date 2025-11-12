@@ -28,7 +28,7 @@ import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.minecraft.core.Direction;
 
 public class MNDPonderScenes {
-    public static void catalyze(SceneBuilder builder, SceneBuildingUtil util) {
+    public static void chargingSoil(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
         scene.title("spout.catalyze_letios_compost", "Catalyzing Leteos Compost");
         scene.configureBasePlate(0, 0, 3);
