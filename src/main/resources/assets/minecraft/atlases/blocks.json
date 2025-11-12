@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/duck"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/duck_female"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/duck_campbell"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/duck_pekin"
+    }
+  ]
+}
