@@ -38,7 +38,6 @@ import plus.dragons.createintegratedfarming.common.registry.CIFDataMaps;
 import plus.dragons.createintegratedfarming.common.registry.CIFLootTables;
 
 public class ChickenRoostBlockEntity extends AnimalRoostBlockEntity {
-
     @Override
     protected ResourceKey<LootTable> productionLootTable() {
         return CIFLootTables.CHICKEN_ROOST;

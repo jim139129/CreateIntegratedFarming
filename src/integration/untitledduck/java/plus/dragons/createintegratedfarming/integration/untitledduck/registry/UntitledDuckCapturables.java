@@ -18,14 +18,14 @@
 
 package plus.dragons.createintegratedfarming.integration.untitledduck.registry;
 
-import net.minecraft.world.entity.EntityType;
 import net.untitledduckmod.common.init.ModEntityTypes;
 import plus.dragons.createintegratedfarming.common.ranching.roost.RoostCapturable;
-import plus.dragons.createintegratedfarming.common.registry.CIFBlocks;
 import plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.duck.DuckRoostBlock;
+import plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.goose.GooseRoostBlock;
 
-public class UntitledRoostCapturables {
+public class UntitledDuckCapturables {
     public static void register() {
         RoostCapturable.REGISTRY.register(ModEntityTypes.DUCK.get(), new DuckRoostBlock.Capturable());
+        RoostCapturable.REGISTRY.register(ModEntityTypes.GOOSE.get(), new GooseRoostBlock.Capturable());
     }
 }

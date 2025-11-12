@@ -24,18 +24,15 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.item.ItemHandlerWrapper;
 import com.simibubi.create.foundation.item.ItemHelper;
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup.Provider;
-import net.minecraft.core.particles.ItemParticleOption;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.Containers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -44,18 +41,11 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
-import plus.dragons.createintegratedfarming.common.ranching.roost.chicken.ChickenFood;
-import plus.dragons.createintegratedfarming.common.registry.CIFDataMaps;
-import plus.dragons.createintegratedfarming.common.registry.CIFLootTables;
 import plus.dragons.createintegratedfarming.config.CIFConfig;
-
-import java.util.List;
 
 public abstract class AnimalRoostBlockEntity extends SmartBlockEntity {
     protected final ItemStackHandler inventory;
@@ -63,7 +53,7 @@ public abstract class AnimalRoostBlockEntity extends SmartBlockEntity {
     protected int feedCooldown;
     protected int eggTime = productionCooldown();
 
-    public int productionCooldown(){
+    public int productionCooldown() {
         return 12000;
     }
 

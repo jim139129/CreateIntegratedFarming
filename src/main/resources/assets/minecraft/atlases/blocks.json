@@ -15,6 +15,26 @@
     {
       "type": "single",
       "resource": "untitledduckmod:entity/duck_pekin"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/goose"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/canadian_goose"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/sus_goose"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/ping_goose"
+    },
+    {
+      "type": "single",
+      "resource": "untitledduckmod:entity/untitled_goose"
     }
   ]
 }

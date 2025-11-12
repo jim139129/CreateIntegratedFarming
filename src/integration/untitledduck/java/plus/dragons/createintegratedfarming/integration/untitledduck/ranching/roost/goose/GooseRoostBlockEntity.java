@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.duck;
+package plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.goose;
 
 import java.util.function.Predicate;
 import net.minecraft.core.BlockPos;
@@ -31,23 +31,23 @@ import net.untitledduckmod.common.init.ModTags;
 import plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.UntitledAnimalRoostBlockEntity;
 import plus.dragons.createintegratedfarming.integration.untitledduck.registry.UntitledDuckLootTables;
 
-public class DuckRoostBlockEntity extends UntitledAnimalRoostBlockEntity {
-    public DuckRoostBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+public class GooseRoostBlockEntity extends UntitledAnimalRoostBlockEntity {
+    public GooseRoostBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
     @Override
     public Predicate<ItemStack> getFoodPredicate() {
-        return stack -> stack.is(ModTags.ItemTags.DUCK_BREEDING_FOOD);
+        return stack -> stack.is(ModTags.ItemTags.GOOSE_BREEDING_FOOD);
     }
 
     @Override
     public SoundEvent getAmbientSound() {
-        return ModSoundEvents.DUCK_AMBIENT.get();
+        return ModSoundEvents.GOOSE_HONK.get();
     }
 
     @Override
     protected ResourceKey<LootTable> productionLootTable() {
-        return UntitledDuckLootTables.DUCK_ROOST;
+        return UntitledDuckLootTables.GOOSE_ROOST;
     }
 }

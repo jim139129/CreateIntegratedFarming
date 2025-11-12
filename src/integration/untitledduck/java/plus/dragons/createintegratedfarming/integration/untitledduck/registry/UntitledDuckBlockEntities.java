@@ -18,14 +18,15 @@
 
 package plus.dragons.createintegratedfarming.integration.untitledduck.registry;
 
+import static plus.dragons.createintegratedfarming.common.CIFCommon.REGISTRATE;
+
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.capabilities.Capabilities.ItemHandler;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.duck.DuckRoostBlockEntity;
-
-import static plus.dragons.createintegratedfarming.common.CIFCommon.REGISTRATE;
+import plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.goose.GooseRoostBlockEntity;
 
 public class UntitledDuckBlockEntities {
     public static final BlockEntityEntry<DuckRoostBlockEntity> DUCK_ROOST = REGISTRATE
@@ -34,6 +35,15 @@ public class UntitledDuckBlockEntities {
             .validBlock(UntitledDuckBlocks.DUCK_ROOST_CAMPBELL)
             .validBlock(UntitledDuckBlocks.DUCK_ROOST_FEMALE)
             .validBlock(UntitledDuckBlocks.DUCK_ROOST_PEKIN)
+            .register();
+
+    public static final BlockEntityEntry<GooseRoostBlockEntity> GOOSE_ROOST = REGISTRATE
+            .blockEntity("goose_roost", GooseRoostBlockEntity::new)
+            .validBlock(UntitledDuckBlocks.GOOSE_ROOST_NORMAL)
+            .validBlock(UntitledDuckBlocks.GOOSE_ROOST_CANADIAN)
+            .validBlock(UntitledDuckBlocks.GOOSE_ROOST_PING)
+            .validBlock(UntitledDuckBlocks.GOOSE_ROOST_SUS)
+            .validBlock(UntitledDuckBlocks.GOOSE_ROOST_UNTITLED)
             .register();
 
     public static void register(IEventBus modBus) {
@@ -46,5 +56,9 @@ public class UntitledDuckBlockEntities {
                 ItemHandler.BLOCK,
                 DUCK_ROOST.get(),
                 DuckRoostBlockEntity::getItemHandler);
+        event.registerBlockEntity(
+                ItemHandler.BLOCK,
+                GOOSE_ROOST.get(),
+                GooseRoostBlockEntity::getItemHandler);
     }
 }

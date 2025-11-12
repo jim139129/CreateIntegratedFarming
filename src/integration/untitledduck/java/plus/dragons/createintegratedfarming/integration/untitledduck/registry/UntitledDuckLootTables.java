@@ -18,18 +18,10 @@
 
 package plus.dragons.createintegratedfarming.integration.untitledduck.registry;
 
-import com.tterrag.registrate.providers.loot.RegistrateLootTableProvider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.untitledduckmod.common.init.ModItems;
 import plus.dragons.createintegratedfarming.common.CIFCommon;
-
-import java.util.function.BiConsumer;
 
 public class UntitledDuckLootTables {
     // Manually write loot table since it needs mod-loading condition.

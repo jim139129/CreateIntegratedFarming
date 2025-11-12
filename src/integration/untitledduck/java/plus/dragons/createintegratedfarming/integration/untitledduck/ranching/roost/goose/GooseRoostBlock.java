@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.duck;
+package plus.dragons.createintegratedfarming.integration.untitledduck.ranching.roost.goose;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -46,7 +46,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
-import net.untitledduckmod.common.entity.DuckEntity;
+import net.untitledduckmod.common.entity.GooseEntity;
 import net.untitledduckmod.common.init.ModEntityTypes;
 import net.untitledduckmod.common.init.ModSoundEvents;
 import plus.dragons.createintegratedfarming.common.ranching.roost.RoostBlock;
@@ -54,11 +54,11 @@ import plus.dragons.createintegratedfarming.common.ranching.roost.RoostCapturabl
 import plus.dragons.createintegratedfarming.integration.untitledduck.registry.UntitledDuckBlockEntities;
 import plus.dragons.createintegratedfarming.integration.untitledduck.registry.UntitledDuckBlocks;
 
-public class DuckRoostBlock extends RoostBlock implements IBE<DuckRoostBlockEntity> {
+public class GooseRoostBlock extends RoostBlock implements IBE<GooseRoostBlockEntity> {
     protected final Holder<Block> empty;
     protected final byte variant;
 
-    public DuckRoostBlock(Properties properties, Holder<Block> empty, byte variant) {
+    public GooseRoostBlock(Properties properties, Holder<Block> empty, byte variant) {
         super(properties);
         this.empty = empty;
         this.variant = variant;
@@ -71,7 +71,7 @@ public class DuckRoostBlock extends RoostBlock implements IBE<DuckRoostBlockEnti
             if (!stack.isEmpty()) {
                 player.getInventory().placeItemBackInInventory(stack);
                 level.playSound(
-                        player, pos, ModSoundEvents.DUCK_LAY_EGG.get(), SoundSource.BLOCKS,
+                        player, pos, ModSoundEvents.GOOSE_LAY_EGG.get(), SoundSource.BLOCKS,
                         1.0F, (level.random.nextFloat() - level.random.nextFloat()) * 0.2F + 1.0F);
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
@@ -82,13 +82,13 @@ public class DuckRoostBlock extends RoostBlock implements IBE<DuckRoostBlockEnti
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.is(Items.LEAD)) {
-            DuckEntity duck = duckVariant(level);
-            duck.setPos(pos.getCenter());
-            duck.setLeashedTo(player, true);
-            level.addFreshEntity(duck);
+            GooseEntity goose = gooseVariant(level);
+            goose.setPos(pos.getCenter());
+            goose.setLeashedTo(player, true);
+            level.addFreshEntity(goose);
             level.setBlockAndUpdate(pos, empty.value().withPropertiesOf(state));
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        } // TODO: Should we support Duck Sack?
+        }
         return onBlockEntityUseItemOn(level, pos, coop -> {
             if (coop != null && coop.feedItem(stack, false)) {
                 if (!player.hasInfiniteMaterials())
@@ -99,31 +99,38 @@ public class DuckRoostBlock extends RoostBlock implements IBE<DuckRoostBlockEnti
         });
     }
 
-    private DuckEntity duckVariant(Level level) {
-        DuckEntity duck = new DuckEntity(ModEntityTypes.DUCK.get(), level);
-        if (variant > 2) {
-            duck.setCustomName(Component.literal("pekin"));
+    private GooseEntity gooseVariant(Level level) {
+        GooseEntity goose = new GooseEntity(ModEntityTypes.GOOSE.get(), level);
+        if (variant < 2) {
+            goose.setVariant(variant);
         } else {
-            duck.setVariant(variant);
+            switch (variant) {
+                case 2:
+                    goose.setCustomName(Component.literal("ping"));
+                case 3:
+                    goose.setCustomName(Component.literal("sus"));
+                case 4:
+                    goose.setCustomName(Component.literal("untitled"));
+            }
         }
-        return duck;
+        return goose;
     }
 
-    private static Block blockVariant(DuckEntity duck) {
-        if (duck.getCustomName() != null) {
-            if (duck.getCustomName().getString().equals("pekin")) {
+    private static Block blockVariant(GooseEntity goose) {
+        if (goose.getCustomName() != null) {
+            if (goose.getCustomName().getString().equals("pekin")) {
                 return UntitledDuckBlocks.DUCK_ROOST_PEKIN.get();
             }
         }
-        return switch (duck.getVariant()) {
+        return switch (goose.getVariant()) {
             case 0b1 -> UntitledDuckBlocks.DUCK_ROOST_FEMALE.get();
             case 0b10 -> UntitledDuckBlocks.DUCK_ROOST_CAMPBELL.get();
             default -> UntitledDuckBlocks.DUCK_ROOST_NORMAL.get();
         };
     }
 
-    public static BlockState withVariantPropertiesOf(BlockState state, DuckEntity duck) {
-        BlockState blockstate = blockVariant(duck).defaultBlockState();
+    public static BlockState withVariantPropertiesOf(BlockState state, GooseEntity goose) {
+        BlockState blockstate = blockVariant(goose).defaultBlockState();
 
         for (Property<?> property : state.getBlock().getStateDefinition().getProperties()) {
             if (blockstate.hasProperty(property)) {
@@ -173,31 +180,31 @@ public class DuckRoostBlock extends RoostBlock implements IBE<DuckRoostBlockEnti
     }
 
     @Override
-    protected MapCodec<? extends DuckRoostBlock> codec() {
+    protected MapCodec<? extends GooseRoostBlock> codec() {
         return RecordCodecBuilder.mapCodec(instance -> instance.group(
                 propertiesCodec(),
                 BuiltInRegistries.BLOCK.holderByNameCodec().fieldOf("empty").forGetter(block -> block.empty),
                 Codec.BYTE.fieldOf("variant").forGetter(block -> block.variant))
-                .apply(instance, DuckRoostBlock::new));
+                .apply(instance, GooseRoostBlock::new));
     }
 
     @Override
-    public Class<DuckRoostBlockEntity> getBlockEntityClass() {
-        return DuckRoostBlockEntity.class;
+    public Class<GooseRoostBlockEntity> getBlockEntityClass() {
+        return GooseRoostBlockEntity.class;
     }
 
     @Override
-    public BlockEntityType<? extends DuckRoostBlockEntity> getBlockEntityType() {
-        return UntitledDuckBlockEntities.DUCK_ROOST.get();
+    public BlockEntityType<? extends GooseRoostBlockEntity> getBlockEntityType() {
+        return UntitledDuckBlockEntities.GOOSE_ROOST.get();
     }
 
     public static class Capturable implements RoostCapturable {
         @Override
         public ItemInteractionResult captureBlock(Level level, BlockState state, BlockPos pos, ItemStack stack, Player player, Entity entity) {
-            if (entity instanceof DuckEntity duck && !duck.isBaby()) {
-                level.setBlockAndUpdate(pos, withVariantPropertiesOf(state, duck));
-                duck.playSound(ModSoundEvents.DUCK_HURT.get());
-                duck.discard();
+            if (entity instanceof GooseEntity goose && !goose.isBaby()) {
+                level.setBlockAndUpdate(pos, withVariantPropertiesOf(state, goose));
+                goose.playSound(ModSoundEvents.GOOSE_HONK.get());
+                goose.discard();
                 return ItemInteractionResult.sidedSuccess(level.isClientSide);
             }
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
@@ -205,18 +212,18 @@ public class DuckRoostBlock extends RoostBlock implements IBE<DuckRoostBlockEnti
 
         @Override
         public InteractionResult captureItem(Level level, ItemStack stack, InteractionHand hand, Player player, Entity entity) {
-            if (entity instanceof DuckEntity duck && !duck.isBaby()) {
+            if (entity instanceof GooseEntity goose && !goose.isBaby()) {
                 if (player.hasInfiniteMaterials())
-                    player.getInventory().placeItemBackInInventory(new ItemStack(blockVariant(duck).asItem()));
+                    player.getInventory().placeItemBackInInventory(new ItemStack(blockVariant(goose).asItem()));
                 else {
-                    if (stack.getCount() == 1) player.setItemInHand(hand, new ItemStack(blockVariant(duck).asItem()));
+                    if (stack.getCount() == 1) player.setItemInHand(hand, new ItemStack(blockVariant(goose).asItem()));
                     else {
-                        player.getInventory().placeItemBackInInventory(new ItemStack(blockVariant(duck).asItem()));
+                        player.getInventory().placeItemBackInInventory(new ItemStack(blockVariant(goose).asItem()));
                         stack.shrink(1);
                     }
                 }
-                duck.playSound(ModSoundEvents.DUCK_HURT.get());
-                duck.discard();
+                goose.playSound(ModSoundEvents.GOOSE_HONK.get());
+                goose.discard();
                 return InteractionResult.sidedSuccess(player.level().isClientSide);
             }
             return InteractionResult.PASS;
