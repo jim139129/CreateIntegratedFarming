@@ -107,9 +107,11 @@ public class GooseRoostBlock extends RoostBlock implements IBE<GooseRoostBlockEn
             switch (variant) {
                 case 2:
                     goose.setCustomName(Component.literal("ping"));
+                    break;
                 case 3:
                     goose.setCustomName(Component.literal("sus"));
-                case 4:
+                    break;
+                default:
                     goose.setCustomName(Component.literal("untitled"));
             }
         }

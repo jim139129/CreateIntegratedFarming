@@ -69,6 +69,11 @@ public class UntitledDuckBlocks {
             event.accept(DUCK_ROOST_FEMALE);
             event.accept(DUCK_ROOST_CAMPBELL);
             event.accept(DUCK_ROOST_PEKIN);
+            event.accept(GOOSE_ROOST_NORMAL);
+            event.accept(GOOSE_ROOST_CANADIAN);
+            event.accept(GOOSE_ROOST_PING);
+            event.accept(GOOSE_ROOST_SUS);
+            event.accept(GOOSE_ROOST_UNTITLED);
         }
     }
 
