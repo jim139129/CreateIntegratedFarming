@@ -3,7 +3,7 @@
   "priority": 1000,
   "package": "plus.dragons.createintegratedfarming.mixin.createenchantablemachinery",
   "compatibilityLevel": "JAVA_21",
-  "plugin": "plus.dragons.createintegratedfarming.mixin.createenchantablemachinery.CEMMixinPlugin",
+  "plugin": "plus.dragons.createintegratedfarming.mixin.UniversalConditionalMixinPlugin",
   "mixins": [
     "EnchantableHarvesterMovementBehaviourMixin",
     "EnchantableSawMovementBehaviourMixin"
