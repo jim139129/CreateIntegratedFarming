@@ -4,11 +4,11 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"duck": "untitledduckmod:entity/duck_female",
-		"top": "farmersdelight:block/basket_top",
-		"particle": "farmersdelight:block/basket_bottom",
-		"bottom": "farmersdelight:block/basket_bottom",
-		"side": "farmersdelight:block/basket_side",
-		"handle": "farmersdelight:block/basket_handle",
+		"top": "create_integrated_farming:block/farmersdelight/basket_top",
+		"particle": "create_integrated_farming:block/farmersdelight/basket_bottom",
+		"bottom": "create_integrated_farming:block/farmersdelight/basket_bottom",
+		"side": "create_integrated_farming:block/farmersdelight/basket_side",
+		"handle": "create_integrated_farming:block/farmersdelight/basket_handle",
 		"hay": "block/hay_block_top"
 	},
 	"elements": [

@@ -1,6 +1,4 @@
-## Create: Integrated Farming 1.2.0b
-
-Update for Create ***6.0.8***. Require Create: Dragons+ 1.8.4.
+## Create: Integrated Farming 1.2.0c
 
 ### Fix
-* Fix Crash related to Conditional Mixin
+* Fix Textures missing when FD isn't installed

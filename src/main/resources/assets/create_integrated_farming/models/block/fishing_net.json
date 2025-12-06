@@ -3,8 +3,8 @@
   "parent": "block/block",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "farmersdelight:block/safety_net",
-    "net": "farmersdelight:block/safety_net",
+    "particle": "create_integrated_farming:block/farmersdelight/safety_net",
+    "net": "create_integrated_farming:block/farmersdelight/safety_net",
     "frame": "create:block/sail/frame"
   },
   "elements": [
