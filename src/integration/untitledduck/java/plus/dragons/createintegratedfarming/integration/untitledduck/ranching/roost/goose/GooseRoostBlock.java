@@ -120,14 +120,19 @@ public class GooseRoostBlock extends RoostBlock implements IBE<GooseRoostBlockEn
 
     private static Block blockVariant(GooseEntity goose) {
         if (goose.getCustomName() != null) {
-            if (goose.getCustomName().getString().equals("pekin")) {
-                return UntitledDuckBlocks.DUCK_ROOST_PEKIN.get();
+            if (goose.getCustomName().getString().equals("ping")) {
+                return UntitledDuckBlocks.GOOSE_ROOST_PING.get();
+            }
+            else if (goose.getCustomName().getString().equals("sus")) {
+                return UntitledDuckBlocks.GOOSE_ROOST_SUS.get();
+            }
+            else if (goose.getCustomName().getString().equals("untitled")) {
+                return UntitledDuckBlocks.GOOSE_ROOST_UNTITLED.get();
             }
         }
         return switch (goose.getVariant()) {
-            case 0b1 -> UntitledDuckBlocks.DUCK_ROOST_FEMALE.get();
-            case 0b10 -> UntitledDuckBlocks.DUCK_ROOST_CAMPBELL.get();
-            default -> UntitledDuckBlocks.DUCK_ROOST_NORMAL.get();
+            case 0b100 -> UntitledDuckBlocks.GOOSE_ROOST_CANADIAN.get();
+            default -> UntitledDuckBlocks.GOOSE_ROOST_NORMAL.get();
         };
     }
 
