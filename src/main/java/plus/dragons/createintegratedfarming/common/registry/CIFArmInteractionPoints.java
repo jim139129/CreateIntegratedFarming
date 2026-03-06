@@ -26,14 +26,14 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import plus.dragons.createintegratedfarming.common.CIFCommon;
-import plus.dragons.createintegratedfarming.common.ranching.roost.chicken.ChickenRoostArmInteractionPoint;
+import plus.dragons.createintegratedfarming.common.ranching.roost.chicken.AnimalRoostArmInteractionPoint;
 
 public class CIFArmInteractionPoints {
     private static final DeferredRegister<ArmInteractionPointType> TYPES = DeferredRegister
             .create(CreateRegistries.ARM_INTERACTION_POINT_TYPE, CIFCommon.ID);
 
     public static final Holder<ArmInteractionPointType> CHICKEN_COOP = TYPES
-            .register("chicken_coop", ChickenRoostArmInteractionPoint.Type::new);
+            .register("chicken_coop", AnimalRoostArmInteractionPoint.Type::new);
 
     public static void register(IEventBus modBus) {
         TYPES.register(modBus);

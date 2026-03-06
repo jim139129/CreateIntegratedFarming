@@ -29,9 +29,10 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import plus.dragons.createintegratedfarming.common.ranching.roost.AnimalRoostBlockEntity;
 
-public class ChickenRoostArmInteractionPoint extends ArmInteractionPoint {
-    public ChickenRoostArmInteractionPoint(ArmInteractionPointType type, Level level, BlockPos pos, BlockState state) {
+public class AnimalRoostArmInteractionPoint extends ArmInteractionPoint {
+    public AnimalRoostArmInteractionPoint(ArmInteractionPointType type, Level level, BlockPos pos, BlockState state) {
         super(type, level, pos, state);
     }
 
@@ -45,7 +46,7 @@ public class ChickenRoostArmInteractionPoint extends ArmInteractionPoint {
     public ItemStack insert(ArmBlockEntity armBlockEntity, ItemStack stack, boolean simulate) {
         if (stack.isEmpty())
             return ItemStack.EMPTY;
-        if (level.getBlockEntity(pos) instanceof ChickenRoostBlockEntity coop && coop.feedItem(stack, simulate)) {
+        if (level.getBlockEntity(pos) instanceof AnimalRoostBlockEntity coop && coop.feedItem(stack, simulate)) {
             return stack.getCount() == 1 ? ItemStack.EMPTY : stack.copyWithCount(stack.getCount() - 1);
         }
         return stack;
@@ -54,13 +55,13 @@ public class ChickenRoostArmInteractionPoint extends ArmInteractionPoint {
     public static class Type extends ArmInteractionPointType {
         @Override
         public boolean canCreatePoint(Level level, BlockPos pos, BlockState state) {
-            return level.getBlockEntity(pos) instanceof ChickenRoostBlockEntity;
+            return level.getBlockEntity(pos) instanceof AnimalRoostBlockEntity;
         }
 
         @Nullable
         @Override
         public ArmInteractionPoint createPoint(Level level, BlockPos pos, BlockState state) {
-            return new ChickenRoostArmInteractionPoint(this, level, pos, state);
+            return new AnimalRoostArmInteractionPoint(this, level, pos, state);
         }
     }
 }
