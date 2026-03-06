@@ -66,7 +66,7 @@ public class HighCropHarvestBehaviour implements CustomHarvestBehaviour {
                             stack.shrink(1);
                             seedSubtracted.setTrue();
                         }
-                        behaviour.dropItem(context, stack);
+                        behaviour.collectOrDropItem(context, stack);
                     });
         } else {
             destroy(level, behaviour, context, pos, state);
@@ -87,6 +87,6 @@ public class HighCropHarvestBehaviour implements CustomHarvestBehaviour {
                 null,
                 CustomHarvestBehaviour.getHarvestTool(context),
                 1,
-                stack -> behaviour.dropItem(context, stack));
+                stack -> behaviour.collectOrDropItem(context, stack));
     }
 }

@@ -59,6 +59,6 @@ public class CloudshroomColonyHarvestBehaviour implements CustomHarvestBehaviour
         level.setBlockAndUpdate(pos, state.setValue(colony.getAgeProperty(), 0));
         int weather = state.getValue(WEATHER_AGE);
         var mushroom = weather == 2 ? DFItems.THUNDER_CLOUDSHROOM.get() : weather == 1 ? DFItems.RAINY_CLOUDSHROOM.get() : DFItems.CLEAR_CLOUDSHROOM.get();
-        behaviour.dropItem(context, new ItemStack(mushroom, age));
+        behaviour.collectOrDropItem(context, new ItemStack(mushroom, age));
     }
 }

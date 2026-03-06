@@ -74,15 +74,15 @@ public class TomatoHarvestBehaviour implements CustomHarvestBehaviour {
                 null,
                 CustomHarvestBehaviour.getHarvestTool(context),
                 1,
-                stack -> behaviour.dropItem(context, stack));
+                stack -> behaviour.collectOrDropItem(context, stack));
         if (ropelogged)
             level.setBlockAndUpdate(pos, getRope());
     }
 
     protected void dropTomatoes(Level level, HarvesterMovementBehaviour behaviour, MovementContext context) {
-        behaviour.dropItem(context, new ItemStack(ModItems.TOMATO.get(), 1 + level.random.nextInt(2)));
+        behaviour.collectOrDropItem(context, new ItemStack(ModItems.TOMATO.get(), 1 + level.random.nextInt(2)));
         if (level.random.nextFloat() < 0.05)
-            behaviour.dropItem(context, new ItemStack(ModItems.ROTTEN_TOMATO.get()));
+            behaviour.collectOrDropItem(context, new ItemStack(ModItems.ROTTEN_TOMATO.get()));
     }
 
     protected BlockState getRope() {

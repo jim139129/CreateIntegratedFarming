@@ -56,10 +56,10 @@ public abstract class AbstractFishingNetMovementBehaviour<T extends AbstractFish
         if (!entity.isBaby() && level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
             var lootTable = level.getServer().reloadableRegistries().getLootTable(entity.getLootTable());
             var lootParams = fishing.buildCaptureLootContext(context, level, entity);
-            lootTable.getRandomItems(lootParams, entity.getLootTableSeed(), item -> dropItem(context, item));
+            lootTable.getRandomItems(lootParams, entity.getLootTableSeed(), item -> collectOrDropItem(context, item));
             if (CIFConfig.server().fishingNetCapturedCreatureDropExpNugget.get()) {
                 int experience = EventHooks.getExperienceDrop(entity, fishing.player, entity.getExperienceReward(level, entity));
-                dropItem(context, new ItemStack(AllItems.EXP_NUGGET.get(), Math.ceilDiv(experience, 3)));
+                collectOrDropItem(context, new ItemStack(AllItems.EXP_NUGGET.get(), Math.ceilDiv(experience, 3)));
             }
         }
         entity.discard();
@@ -95,7 +95,7 @@ public abstract class AbstractFishingNetMovementBehaviour<T extends AbstractFish
                 List<ItemStack> loots = lootTable.getRandomItems(params);
                 var event = NeoForge.EVENT_BUS.post(new ItemFishedEvent(loots, 0, fishing.getFishingHook()));
                 if (!event.isCanceled()) {
-                    loots.forEach(stack -> dropItem(context, stack));
+                    loots.forEach(stack -> collectOrDropItem(context, stack));
                 }
             }
             fishing.reset(level);

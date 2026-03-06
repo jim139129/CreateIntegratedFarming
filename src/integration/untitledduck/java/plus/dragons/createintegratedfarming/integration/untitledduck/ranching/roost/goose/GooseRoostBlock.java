@@ -122,11 +122,9 @@ public class GooseRoostBlock extends RoostBlock implements IBE<GooseRoostBlockEn
         if (goose.getCustomName() != null) {
             if (goose.getCustomName().getString().equals("ping")) {
                 return UntitledDuckBlocks.GOOSE_ROOST_PING.get();
-            }
-            else if (goose.getCustomName().getString().equals("sus")) {
+            } else if (goose.getCustomName().getString().equals("sus")) {
                 return UntitledDuckBlocks.GOOSE_ROOST_SUS.get();
-            }
-            else if (goose.getCustomName().getString().equals("untitled")) {
+            } else if (goose.getCustomName().getString().equals("untitled")) {
                 return UntitledDuckBlocks.GOOSE_ROOST_UNTITLED.get();
             }
         }

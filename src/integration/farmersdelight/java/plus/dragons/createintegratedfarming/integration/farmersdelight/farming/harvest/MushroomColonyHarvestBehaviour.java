@@ -74,7 +74,7 @@ public class MushroomColonyHarvestBehaviour implements CustomHarvestBehaviour {
         Level level = context.world;
         level.playSound(null, pos, SoundEvents.MOOSHROOM_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
         level.setBlockAndUpdate(pos, state.setValue(colony.getAgeProperty(), 0));
-        behaviour.dropItem(context, new ItemStack(mushroom, age));
+        behaviour.collectOrDropItem(context, new ItemStack(mushroom, age));
     }
 
     protected void harvestColony(HarvesterMovementBehaviour behaviour, MovementContext context, BlockPos pos, BlockState state) {
@@ -87,7 +87,7 @@ public class MushroomColonyHarvestBehaviour implements CustomHarvestBehaviour {
                 null,
                 CustomHarvestBehaviour.getHarvestTool(context, new ItemStack(Items.SHEARS)),
                 1,
-                stack -> behaviour.dropItem(context, stack));
+                stack -> behaviour.collectOrDropItem(context, stack));
         replantMushroom(context, pos);
     }
 
