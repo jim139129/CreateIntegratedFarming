@@ -21,13 +21,10 @@ package plus.dragons.createintegratedfarming.integration.farmersdelight.registry
 import plus.dragons.createintegratedfarming.api.harvester.CustomHarvestBehaviour;
 import plus.dragons.createintegratedfarming.integration.farmersdelight.farming.harvest.MushroomColonyHarvestBehaviour;
 import plus.dragons.createintegratedfarming.integration.farmersdelight.farming.harvest.TomatoHarvestBehaviour;
-import vectorwing.farmersdelight.common.block.TomatoVineBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class FDHarvestBehaviors {
     public static void register() {
         CustomHarvestBehaviour.REGISTRY.registerProvider(MushroomColonyHarvestBehaviour::create);
-        var tomato = (TomatoVineBlock) ModBlocks.TOMATO_CROP.get();
-        CustomHarvestBehaviour.REGISTRY.register(tomato, new TomatoHarvestBehaviour(tomato));
+        CustomHarvestBehaviour.REGISTRY.registerProvider(TomatoHarvestBehaviour::create);
     }
 }

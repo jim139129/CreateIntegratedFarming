@@ -27,7 +27,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 import plus.dragons.createintegratedfarming.api.harvester.CustomHarvestBehaviour;
 import vectorwing.farmersdelight.common.Configuration;
 import vectorwing.farmersdelight.common.block.TomatoVineBlock;
@@ -40,6 +42,12 @@ public class TomatoHarvestBehaviour implements CustomHarvestBehaviour {
 
     public TomatoHarvestBehaviour(TomatoVineBlock tomato) {
         this.tomato = tomato;
+    }
+
+    public static @Nullable TomatoHarvestBehaviour create(Block block) {
+        if (!(block instanceof TomatoVineBlock tomato))
+            return null;
+        return new TomatoHarvestBehaviour(tomato);
     }
 
     @Override
