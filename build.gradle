@@ -143,7 +143,9 @@ configurations {
 }
 
 repositories {
-    maven { url "http://maven.dragons.plus/releases" } // Ponder, Flywheel
+    maven { url "http://maven.dragons.plus/releases" 
+            allowInsecureProtocol = true
+    } // Ponder, Flywheel
     maven { url "https://maven.createmod.net" } // Ponder, Flywheel
     maven { url "https://mvn.devos.one/snapshots" } // Registrate
     maven { url "https://maven.blamejared.com" } // JEI
@@ -238,6 +240,7 @@ publishing {
         maven {
             name "DragonsPlus"
             url "http://maven.dragons.plus/releases"
+            allowInsecureProtocol = true
             credentials(PasswordCredentials)
             authentication {
                 basic(BasicAuthentication)
