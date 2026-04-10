@@ -143,7 +143,7 @@ configurations {
 }
 
 repositories {
-    maven { url "https://maven.dragons.plus/releases" } // Ponder, Flywheel
+    maven { url "http://maven.dragons.plus/releases" } // Ponder, Flywheel
     maven { url "https://maven.createmod.net" } // Ponder, Flywheel
     maven { url "https://mvn.devos.one/snapshots" } // Registrate
     maven { url "https://maven.blamejared.com" } // JEI
@@ -237,7 +237,7 @@ publishing {
     repositories {
         maven {
             name "DragonsPlus"
-            url "https://maven.dragons.plus/releases"
+            url "http://maven.dragons.plus/releases"
             credentials(PasswordCredentials)
             authentication {
                 basic(BasicAuthentication)
