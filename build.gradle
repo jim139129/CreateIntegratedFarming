@@ -152,6 +152,7 @@ repositories {
     maven { url "https://api.modrinth.com/maven" }
     maven { url "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" } // NeoForge config api port, needed by ponder
     maven { url 'https://maven.fallenbreath.me/releases' } // Conditional Mixin
+    maven { url "https://maven.ryanhcode.dev/releases" } // RyanHCode Maven - Sable
 }
 
 dependencies {
@@ -175,6 +176,11 @@ dependencies {
     localImplementation("maven.modrinth:nether-depths-upgrade:${nether_depths_upgrade_version}")
     localImplementation("maven.modrinth:untitled-duck-mod:${untitled_duck_version}")
     localImplementation("curse.maven:delighto-flight-1347014:7170834") // 1.2.2
+
+    localImplementation("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
+    localImplementation("dev.simulated_team.simulated:simulated-neoforge-${minecraft_version}:${create_aeronautics_version}")  { transitive false }
+    localImplementation("dev.eriksonn.aeronautics:aeronautics-neoforge-${minecraft_version}:${create_aeronautics_version}")  { transitive false }
+    localImplementation("dev.ryanhcode.offroad:offroad-neoforge-${minecraft_version}:${create_aeronautics_version}")  { transitive false }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
