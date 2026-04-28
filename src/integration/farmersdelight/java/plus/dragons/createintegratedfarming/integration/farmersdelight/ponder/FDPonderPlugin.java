@@ -19,15 +19,17 @@
 package plus.dragons.createintegratedfarming.integration.farmersdelight.ponder;
 
 import static com.simibubi.create.infrastructure.ponder.AllCreatePonderTags.ARM_TARGETS;
-import static vectorwing.farmersdelight.common.registry.ModBlocks.BASKET;
 
 import com.simibubi.create.AllBlocks;
+import java.lang.reflect.Field;
+import java.util.function.Supplier;
 import net.createmod.catnip.registry.RegisteredObjectsHelper;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import plus.dragons.createintegratedfarming.client.ponder.CIFPonderPlugin;
 import plus.dragons.createintegratedfarming.client.ponder.CIFPonderTags;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -43,11 +45,27 @@ public class FDPonderPlugin {
                 .addStoryBoard("farmersdelight/organic_compost_catalyze", FDPonderScenes::catalyze, CIFPonderTags.FARMING_APPLIANCES);
     }
 
+    @SuppressWarnings("unchecked")
     private static void registerTags(PonderTagRegistrationHelper<ResourceLocation> helper) {
         PonderTagRegistrationHelper<ItemLike> itemHelper = helper.withKeyFunction(
                 RegisteredObjectsHelper::getKeyOrThrow);
 
-        itemHelper.addToTag(ARM_TARGETS)
-                .add(BASKET.get());
+        try {
+            Field basketField = ModBlocks.class.getField("BASKET");
+            Supplier<Block> basket = (Supplier<Block>) basketField.get(null);
+            itemHelper.addToTag(ARM_TARGETS).add(basket.get());
+        } catch (NoSuchFieldException e) {
+            try {
+                Supplier<Block> wooden = (Supplier<Block>) ModBlocks.class.getField("WOODEN_BASKET").get(null);
+                Supplier<Block> bamboo = (Supplier<Block>) ModBlocks.class.getField("BAMBOO_BASKET").get(null);
+                itemHelper.addToTag(ARM_TARGETS)
+                        .add(wooden.get())
+                        .add(bamboo.get());
+            } catch (NoSuchFieldException | IllegalAccessException ex) {
+                throw new RuntimeException("Failed to register Farmer's Delight Basket ponder tags", ex);
+            }
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException("Failed to register Farmer's Delight Basket ponder tags", e);
+        }
     }
 }
